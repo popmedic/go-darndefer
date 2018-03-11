@@ -33,13 +33,17 @@ This little benchmark test in this package will show what I mean.  Here is what 
 | without | 25.4 ns/op |
 | withSyncFunc | 26.1 ns/op |
 
-One can tell quickly that defer is not that expensive, ~30 ns/op, but it is overhead, and maybe should be avoided if not needed.  Probably asking "what is a withSyncFunc."  Not sure what others call it, but I call them sync functions.  I make these functions so I can have the assurance of defer, but with much less overhead (as seen above.)  The function is quite simple:
+One can tell quickly that defer is not that expensive, ~30 ns/op, but it is overhead, and maybe should be avoided if not needed.  
+
+## What is a withSyncFunc?
+
+Probably asking "what is a withSyncFunc."  Not sure what others call it, but I call them sync functions.  I make these functions so I can have the assurance of defer, but with much less overhead (as seen above.)  The function is quite simple:
 
 ``` Go
 func syncFunc(l sync.Locker, block func()) {
-	l.Lock()
-	block()
-	l.Unlock()
+    l.Lock()
+    block()
+    l.Unlock()
 }
 ```
 
@@ -52,7 +56,7 @@ syncFunc(myMutex, func(){
 })
 ```
 
-## Works with close as well
+### Works with close as well
 
 If you like the sync functions like I do, you might also like using this:
 
