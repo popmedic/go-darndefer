@@ -21,6 +21,7 @@ func withSyncFunc() {
 	m := &sync.Mutex{}
 	syncFunc(m, func() {})
 }
+
 func BenchmarkWithDefer(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
