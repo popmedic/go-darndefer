@@ -1,5 +1,5 @@
 # go-darndefer
-The GOD Darn Defer makes my functions slower!
+The gosh darn defer makes my functions slower!
 
 In the process of testing [Channels VS Mutexes](https://github.com/popmedic/go-chanVmutex) in Go, I stumbled upon something that kinda made me stop for a second.  Ofen in Go, I will use a Mutex like so:
 
