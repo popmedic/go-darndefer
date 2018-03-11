@@ -43,11 +43,31 @@ func syncFunc(l sync.Locker, block func()) {
 }
 ```
 
-It can then be used sort of like defer to insure that the `Close()` or `UnLock()` is always called:
+It can then be used sort of like defer to insure that the `UnLock()` is always called:
 
 ``` Go
 syncFunc(myMutex, func(){
     // Critical Section
+    // ...
+})
+```
+
+## Works with close as well
+
+If you like the sync functions like I do, you might also like using this:
+
+``` Go
+func closeFunc(c io.Closer, block func()) {
+    block()
+    c.Close()
+}
+```
+
+so you can do:
+
+``` Go
+closeFunc(f, func(){
+    // do stuff with f
     // ...
 })
 ```
