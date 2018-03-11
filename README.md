@@ -23,7 +23,7 @@ func (v *Struct) criticalSection(m *sync.Mutex) {
 }
 ```
 
-because of how simple things where, I was not going to have a return where I did not unlock. I of course benchmarked the results before I cleaned up by make the unlocks defer functions and I noticed how much longer it took with the defer functions! 
+because I was NOT going to have a return where I did not unlock. I of course benchmarked the results before I cleaned up by making the unlocks defer functions and I noticed how much longer it took with the defer functions!
 
 This little benchmark test in this package will show what I mean.  Here is what I get with my _MacBook Pro, 2.8 GHz Intel Core i7, 16 GB 1600 MHz DDR3_:
 
