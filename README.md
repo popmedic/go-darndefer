@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/popmedic/go-darndefer.svg?branch=master)](https://travis-ci.org/popmedic/go-darndefer)
+[![codecov](https://codecov.io/gh/popmedic/go-darndefer/branch/master/graph/badge.svg)](https://codecov.io/gh/popmedic/go-darndefer)
 # go-darndefer
 The gosh darn defer makes my functions slower!
 
